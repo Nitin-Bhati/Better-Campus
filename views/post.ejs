@@ -1,0 +1,33 @@
+<div class="container">
+  <article aria-labelledby="post-title" class="card post-detail">
+    <h2 id="post-title" class="post-title"><%= post.title %></h2>
+    <p class="post-body"><%= post.content %></p>  
+  </article>
+
+  <section aria-labelledby="comments-heading" class="section card">
+    <h3 id="comments-heading" class="section-title">Comments</h3>
+    <ul class="comments-list" role="list">
+      <% if (post.Comments && post.Comments.length === 0) { %>  
+        <li role="listitem" class="no-comments">No comments yet. Be the first!</li>
+      <% } else if (post.Comments) { %>
+        <% post.Comments.forEach(comment => { %> 
+          <li role="listitem" class="comment-item">
+            <p><%= comment.content %></p>  
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
+
+    <form action="/posts/<%= post.id %>/comments" method="POST" class="comment-form">
+      <div class="form-group">
+        <label for="comment">Add a Comment:</label>
+        <textarea id="comment" name="comment" rows="3" placeholder="Share your thoughts..." required aria-required="true" class="form-input"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Comment</button>
+    </form>
+  </section>
+
+  <a href="/" class="back-link btn btn-secondary">← Back to Posts</a>
+</div>
+
+
