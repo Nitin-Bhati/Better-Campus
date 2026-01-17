@@ -331,9 +331,5 @@ footer {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
 }
-/* input:invalid, textarea:invalid {
-  border: 2px solid #E9ECEF;  /* Match your normal border color */
-  /* outline: none;  /* Remove any outline */
-  /* box-shadow: none;  Remove any shadow effects */ 
-/* }  */
+
 
