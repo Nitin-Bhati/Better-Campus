@@ -67,14 +67,13 @@ app.get('/', async (req, res) => {
   }
 });
 
-// Create new post with optional image
-// Use upload.single('image') — name must match form input
+
 app.post('/posts', upload.single('image'), async (req, res) => {
   const { title, body: content } = req.body;
   let imagePath = null;
 
   if (req.file) {
-    // store relative path that is accessible via /uploads route
+   
     imagePath = `/uploads/${req.file.filename}`;
   }
 
@@ -91,7 +90,7 @@ app.post('/posts', upload.single('image'), async (req, res) => {
   }
 });
 
-// View single post and comments
+
 app.get('/posts/:id', async (req, res) => {
   try {
     const post = await Post.findByPk(req.params.id, { include: Comment });
@@ -103,7 +102,7 @@ app.get('/posts/:id', async (req, res) => {
   }
 });
 
-// Add comment
+// Add comment in your website
 app.post('/posts/:id/comments', async (req, res) => {
   const { comment: content } = req.body;
   if (!content) return res.status(400).send('Comment content is required');
@@ -133,7 +132,7 @@ app.get('/api/posts', async (req, res) => {
 app.listen(port, async () => {
   console.log(`Server running at http://localhost:${port}`);
   try {
-    // alter:true updates table to match model (safe for dev). Remove or set force:false for production.
+    
     await sequelize.sync({ alter: true });
     console.log('Database synced successfully (alter:true)');
   } catch (err) {
