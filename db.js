@@ -1,10 +1,10 @@
-const { Sequelize } = require('sequelize');  // Import Sequelize library
+const { Sequelize } = require('sequelize'); 
 
-// Create a new Sequelize instance without a password
-const sequelize = new Sequelize('better_campus_db', 'root', '', {  // Empty string for no password
-  host: 'localhost',  // For local MySQL instance
-  dialect: 'mysql',   // Specify MySQL
-  logging: false,     // Optional: Disable logs for cleaner output
+
+const sequelize = new Sequelize('better_campus_db', 'root', '', {  
+  host: 'localhost', 
+  dialect: 'mysql',   
+  logging: false,     
 });
 
-module.exports = sequelize;  // Export for use in other files
+module.exports = sequelize;  
