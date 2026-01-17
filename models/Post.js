@@ -1,10 +1,10 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../db');  // Import the Sequelize instance from db.js
+const sequelize = require('../db');
 
 const Post = sequelize.define('Post', {
   userId: {
     type: DataTypes.STRING,
-    allowNull: false  // Assuming a user ID; replace as needed
+    allowNull: false  
   },
   title: {
     type: DataTypes.STRING,
@@ -24,5 +24,5 @@ const Post = sequelize.define('Post', {
   }
 });
 
-module.exports = Post;  // Export the model for use in other files
+module.exports = Post;  
 
